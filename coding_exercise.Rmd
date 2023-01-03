@@ -3,9 +3,12 @@ title: "R Coding Exercise"
 output: 
   html_document:
     toc: FALSE
+    include:
+      after_body: aboutme.Rhtml
+    css: styles.css
 ---
 
-Placeholder file for the future R coding exercise.
+
 
 
 

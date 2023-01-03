@@ -1,10 +1,11 @@
 ---
-title: "About me"
+title: " "
 output: 
   html_document:
     toc: FALSE
+    include:
+      after_body: aboutme.Rhtml
+    css: styles.css
 ---
 
-
-Add some text and a figure describing myself.
 

@@ -11,12 +11,12 @@
 
 
 
-<title>My website and data analysis portfolio</title>
+<title>index.knit</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -30,8 +30,6 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -47,6 +45,8 @@
 
 
 
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
 
 
 
@@ -70,6 +70,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -127,11 +130,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -160,8 +167,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -169,16 +176,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -222,44 +222,21 @@ $(document).ready(function () {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">My Data Analysis Portfolio</a>
+      <a class="navbar-brand" href="index.html">Eugene's Portfolio</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="./aboutme.html">About Me</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Projects
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="./coding_exercise.html">R Coding Exercise</a>
-    </li>
-    <li>
-      <a href="./visualization_exercise.html">Visualization Exercise</a>
-    </li>
-    <li>
-      <a href="./tidytuesday_exercise.html">Tidy Tuesday Exercise</a>
-    </li>
-  </ul>
+  <a href="./aboutme.html">Projects</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="URL-TO-THIS-REPOSITORY-HERE">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -269,23 +246,104 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">My website and data analysis portfolio</h1>
 
 </div>
 
 
-<div id="hello" class="section level1">
-<h1>Hello</h1>
-<div id="and-hello-again" class="section level3">
-<h3>And hello again</h3>
-<p>Welcome to <strong>my website</strong> and <em>data analysis portfolio.</em></p>
-<ul>
-<li>Please use the <code>Menu Bar</code> above to look around.</li>
-<li>Have fun!</li>
-</ul>
-</div>
-</div>
 
+
+<!DOCTYPE html>
+
+<html lang="en">
+  
+  <body>
+   
+  <br>
+  <br>
+    
+    <img src="eugene.jpg" alt="Eugene" class ="left"> 
+    
+    <h2> Eugene Rubinchik </h2>
+    
+  <br>
+    
+    
+    <h3> Welcome to my portfolio! </h3>
+    
+  <br>
+    
+    <p> Hello! My name is Eugene, and I am an  urban geographer and cartographer from the greater Atlanta area. Storytelling has always been a large part of my life, and maps are the best way to capture the physical and conceptual scale of the urban enviornment. 
+    
+  <br>
+  <br>
+    
+    I am most interested in urban transportation and public spaces, and I currently exercise these interests as an EV programs intern for Clean Cities Georgia  and as an RA for the Mobility Solutions for Better Health project at Georgia State University 
+    
+    <br>
+    <br>
+    
+    I recieved my Bachelor of Arts in Economics with a minor in Journalism at Georgia State University and am currently acquiring a Master of Interdisciplinary Studies in Urban Studies and a Professional Certificate in Geographic Information Studies at Georgia State University. If you want to read more about my specific projects and work, click <a href="C:\Users\erubi\Desktop\WEBSITE\repositories\EugeneRubinchik-MADA-portfolio\docs\aboutme.html">here</a>. </p>
+    
+  <br>
+  <br>
+    
+     
+    
+    <p5> 
+    
+  <br>
+    Graduate Candidate at Georgia State University 
+  <br>  
+    Research Assistant at Georgia State University
+  <br>
+    Ev Programs Intern at Clean Cities Georgia 
+  </p5>
+    
+  <br>
+  <br>
+  <br>
+  
+  
+  <p5> 
+    
+  <br>
+    (He/Him)
+  <br>  
+    Email: <a href="mailto:rubinchikeugene@gmail.com"> rubinchikeugene@gmail.com
+    </a>
+  <br>
+    Phone: 404-641-1866 
+  <br>
+    <a href="C:\Users\erubi\Desktop\WEBSITE\repositories\EugeneRubinchik-MADA-portfolio\Eugene Rubinchik Resume 2022 Updated November.pdf" download>
+    Check out my Resume </a> </p5>
+    
+    
+    
+  <br>
+  <br>
+    
+    
+    
+    <h4> Roots and Motivation
+    </h4>
+    <p2> Like many others, my parents came to America with nothing but the clothes on their backs. They left the Soviet Union with my brother and despite all odds, they created an amazing life for me full of experience, culture, and prosperity. 
+    
+    <br><br>
+    
+         My background inspires me to seek success in a multitude of ways. My grandfather Solomon grew up in a Jewish village outside of Minsk before being forced to move to St. Petersburg, then referred to as Leningrad. He went to school to become an engineer becoming the first in my family to attend college. My grandmother Fanya cultivated my family's moral code. She always taught me to stay determined and do what is right since pride will outlast possessions. These people who risked everything for me are the reason that I am always hungry to learn while reamining humble. 
+         
+    <br><br>
+    
+         My greatest achievment thus far was learning bicycle repair during my undergrad and becomming self-reliant off this skill. I learned invaluable mechanical and organizational skills as I gained more responsibilities at my bicycle shop. I also began viewing the world differently as I interacted with different individuals throughout the bicycle community. Riding bicycles also formed my interest in urban geography which has impacted my life forever. 
+         
+    <br><br>
+        
+        I have been interning with Clean Cities Georgia for over a year now. With Clean Cities Georgia, I have grown from working on press releases and flyers to actively engaging with clean energy advocates and stakeholders. My experience analyzing the economic, political, and infrastructural aspects of the clean energy landscape has been a great application of my graduate learning, and I have even been able to apply my mapmaking skills to several projects and presentations. 
+    </p2>
+    
+  </body>
+
+</html>
 
 
 

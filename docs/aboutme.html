@@ -11,12 +11,12 @@
 
 
 
-<title>About me</title>
+<title>aboutme.knit</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -30,8 +30,6 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -47,6 +45,8 @@
 
 
 
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
 
 
 
@@ -70,6 +70,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -127,11 +130,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -160,8 +167,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -169,16 +176,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -222,44 +222,21 @@ $(document).ready(function () {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">My Data Analysis Portfolio</a>
+      <a class="navbar-brand" href="index.html">Eugene's Portfolio</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="./aboutme.html">About Me</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Projects
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="./coding_exercise.html">R Coding Exercise</a>
-    </li>
-    <li>
-      <a href="./visualization_exercise.html">Visualization Exercise</a>
-    </li>
-    <li>
-      <a href="./tidytuesday_exercise.html">Tidy Tuesday Exercise</a>
-    </li>
-  </ul>
+  <a href="./aboutme.html">Projects</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="URL-TO-THIS-REPOSITORY-HERE">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -269,13 +246,253 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About me</h1>
 
 </div>
 
 
-<p>Add some text and a figure describing myself.</p>
 
+
+<!DOCTYPE html>
+
+<html lang="en">
+  
+  <body>
+   
+    <br>
+    <br>
+    
+    
+    
+    
+    <h9> Professional Projects
+    </h9>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h10> CDC Rabies SRS Mapping Project
+    </h10>
+    
+    
+    <p10> During my undergraduate degree, I connected with a Georgia State University alumni who allowed me to participate in a CDC research study regarding rabies vaccines for dogs in Bangladesh. 
+    
+    <br>
+    <br>
+    
+    My primary objective was to correct and oragnize GIS pathlines for researchers in Chittagong, Bangladesh. This project required a strong attention to detail as corrupted pathlines had to be perfectly replicated and contain metadata and attributes that could make these new lines easy to work with and sort.  
+    </p10>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h11> CCGA EV Gaps Analysis and Mapping
+    </h11>
+    
+    
+    <p11> As an EV Programs Intern for Clean Cities Georgia, I was tasked with organizing meetings with three Georgia city organizations and presenting findings on infrastructural electric vehicle charging gaps. I ended up making detailed maps for these presentations, and successfully met with three city organizations. 
+    
+    <br>
+    <br>
+    
+    I used various tools from DOE's Alternative Fuel Data Center to predict future economic outputs from EV charging infrastructure. One particular organization followed up with us and attended an upcoming EV infrastructure webinar, and another organization utilized my maps for another event of theirs. The maps can be viewed here: </p11>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <ul>
+    <li> <a href="C:\Users\erubi\Desktop\WEBSITE\repositories\EugeneRubinchik-MADA-portfolio\Final Maps\Population and Density Change.png">Atlanta Employment and Population Density Projection Map </a></li>
+    <li> <a href="C:\Users\erubi\Desktop\WEBSITE\repositories\EugeneRubinchik-MADA-portfolio\Final Maps\Savannah.png">Savannah Current EV Charging Infrastructure Map </a></li>
+    <li> <a href="C:\Users\erubi\Desktop\WEBSITE\repositories\EugeneRubinchik-MADA-portfolio\Final Maps\Savannah2.png">Savannah Current Land Use and EV Charging Infrastructure Map </a></li>
+    <li> <a href="C:\Users\erubi\Desktop\WEBSITE\repositories\EugeneRubinchik-MADA-portfolio\Final Maps\Brunswick.png"> Brunswick Current EV Charging Infrastructure Map </a></li>
+    <li> <a href="C:\Users\erubi\Desktop\WEBSITE\repositories\EugeneRubinchik-MADA-portfolio\Final Maps\Brunswick2.png">Brunswick Current Land Use and EV Charging Infrastructure Map </a></li>
+   
+    </ul>
+    
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h12> Mobility Solutions for Better Health
+    </h12>
+    
+    <p12> I am a research assistant for Dr. Fei Li within the Urban Studies Institute at Georgia State University. This project focuses on how transportation methods and grocery shopping habits changed for low-income, diabetic individuals during and after the COVID-19 pandemic. 
+    
+    <br>
+    <br>
+    
+    My largest contributions to this project are my data organization and interviewing skills although I have also contributed to coding qualitative data for various recorded interviews. 
+    </p12>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h13> Gwinnett County Parks and Recreation Invasive Plant Project 
+    </h13>
+    
+    <p13> During the summer before I started my graduate degree, I interned with the Gwinnett County Parks and Recreation service. This was a very open-ended internship where I was given the flexability and resources to undertake any project of my liking. As a result, I utilized Trimble GPS technology to track the locations of invasive plants, namely privet, at various county parks. 
+    
+    <br>
+    <br>
+    
+    I also created customized data dictionaries for this GPS tracking so that I could add certain data attributes to the tracked plants for mapping purposes. These maps ended up being given out to various park maintenance crews so that general loactions for the invasive plants could be identified. 
+    </p13>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h13> Communications 
+    </h13>
+    
+    <p13> I have contributed to communications efforts at various organizations that I have worked at. These efforts have included press releases for clean energy news outlets, website redesigns, newspaper articles for Georgia State University's student newspaper, creating audio bumps for Georgia State Uiversity's radio station, storytelling for Atlanta Bicycle Coalition (now PropelATL), and creating various newsletters for Clean Cities Georgia. 
+    </p13>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h9> Scholarly Projects
+    </h9>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h14> Skateboarding in the A: When Transportation is beyond getting from A to B
+    </h14>
+    
+    <p14> This is my ongoing graduate capstone project. Because most of my professional work has involved quanitative analysis, I decided that I would take a qualitative approach to an urban studies issue of interest for my capstone. 
+    <br>
+    <br>
+    
+    This project involves interviewing various transportation advocates and skateboarding community leaders to better understand how public transportation methods affect formal and informal skateboarding place creation in an urban environment. 
+    
+    <br>
+    <br>
+    
+    This project required me to study urban place creation thoery as well as land value and political factors towards public place creation. By interviewing these individuals and coding their interviews for common themes, I hope to create a conversation about how different subgroups utilize space differently and how available transportation methods affect space creation.  
+    </p14>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+     <h15> F4 Newnan Tornado Path Regrowth  
+    </h15>
+    
+    <p15> For a remote sensing class, I decided on utilizing satellite imagery and remote sensing techniques to track the regrowth of land features in the F3 and F4 damage regions of a torando that hit Newnan, Georgia. 
+    
+    <br>
+    <br>
+    
+    This project required classifying certain pixels as a certain type of land feature and letting the software record like pixels together. By using this technique before the tornado and one year after the tornado, I could use a pixel count tool to track how the pixel values changed. 
+    </p15>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h16> 2021 Google Search Trends
+    </h16>
+    
+    <p16> For a cartography class final, I decided to take open source Google search data and create a map that represents how these Google searches represent regions of the United States.
+    
+    <br>
+    <br>
+    
+    Because I wanted these Google searches to tell a story, I decided to choose Google searches that were contrasting in nature. As a result, I created two bivariate maps that show likelihood of Google searching "cycling vs. farming" and "Tupac Shakur vs. Dolly Parton." The maps can be seen <a href="C:\Users\erubi\Desktop\WEBSITE\repositories\EugeneRubinchik-MADA-portfolio\Final Maps\Rubinchik_Final_Map.jpg"> here. </a>
+    </p16>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h17> USA Rental Density
+    </h17>
+    
+    <p17> For a digital cartography class assignment, I decided to take open source rental number data for various metropolitan areas and create a map that represents how rental density is different accross the country.
+    
+    <br>
+    <br>
+    
+    All values were normalized for number of total households in an area. The map can be seen <a href="C:\Users\erubi\Desktop\WEBSITE\repositories\EugeneRubinchik-MADA-portfolio\Final Maps\Graduated PNG.png"> here. </a>
+    </p17>
+    
+    
+  </body>
+
+</html>
 
 
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  
+  <b>
+   
+    <br>
+    <br>
+    <img src="eugene.jpg" alt="Eugene" class ="left"> 
+    
+    
+    
+    <h2> Eugene Rubinchik
+    </h2>
+    
+    <br>
+    <br>
+    
+    
+    <h3> Welcome to my portfolio!
+    </h3>
+    
+    <br>
+    
+    <p> If you want to find out about my projects and maps, click <a href="">h&nbspe&nbspr&nbspe</a>. If you want to hear about the motivation for my professional madness and my interests, click <a href="">h&nbspe&nbspr&nbspe</a>.
+    
+    <br>
+    <br>
+    
+     While I have you here though, here is a three truths and a lie. The answer will be in my "about me" tab. </p>
+    
+    <br>
+    
+    <ul>
+    <li> I am a bicycle mechanic </li>
+    <li> I have been across the Atlantic Ocean six times </li>
+    <li> Engish wasn't my first language </li>
+    </ul>
+    
+    
+    
+    <br>
+    <br>
+    
+    <img2 src="map.png" alt="Map1" class="center">
+    
+    <h4>
+    </h4>
+    <p2> 
+    </p2>
+    
+  </b>
+
+</html>
