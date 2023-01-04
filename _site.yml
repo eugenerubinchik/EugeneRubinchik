@@ -10,9 +10,12 @@ output:
     css: styles.css
 navbar:
   type: inverse
-  title: "Eugene's Portfolio"
+  title: "Home"
   left:
     - text: "Projects"
       href: ./aboutme.html
+    - text: "Maps"
+      href: ./maps.html
+      
     
     
